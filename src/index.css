@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=Oswald:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-alma-black text-alma-light font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glitch {
+    text-shadow: 2px 0 #ff0000, -2px 0 #00ffff;
+  }
+}
+
+/* Custom Scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4a4a4a;
+}
+
+/* Hide scrollbar completely when body is locked */
+body.locked {
+  overflow: hidden;
+}

@@ -15,6 +15,7 @@ interface BatProps {
   scale: number;
   targetScale: number;
   zIndex: number;
+  flapDuration: number;
 }
 
 export default function BatsAnimation() {
@@ -45,6 +46,7 @@ export default function BatsAnimation() {
         scale: 0.05 + Math.random() * 0.1, // Start very tiny
         targetScale: 10 + Math.random() * 25, // Scale up massively (flying into the camera)
         zIndex: 50,
+        flapDuration: 0.4 + Math.random() * 0.2, // Synchronized wing flap speed per bat
       };
     });
 
@@ -75,26 +77,70 @@ export default function BatsAnimation() {
             filter: bat.scale > 1.2 ? 'blur(2px)' : 'none', // Depth of field effect
           }}
         >
-          <motion.svg
+          <svg
             width="40"
             height="18"
             viewBox="0 0 1280 585"
             fill="currentColor"
             className="text-black/80 dark:text-black origin-center"
-            animate={{
-              scaleY: [1, 0.15, 1], // Deep vertical wing stroke
-              scaleX: [1, 0.85, 1], // Wing contraction at the top of the stroke
-            }}
-            transition={{
-              duration: 0.5 + Math.random() * 0.25, // Slower, majestic flapping like the video (approx 2 flaps per second)
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
           >
-            <g transform="translate(0.000000,585.000000) scale(0.100000,-0.100000)">
-              <path d={BAT_PATH} />
+            <defs>
+              <clipPath id={`left-wing-clip-${bat.id}`}>
+                <rect x="0" y="0" width="550" height="585" />
+              </clipPath>
+              <clipPath id={`right-wing-clip-${bat.id}`}>
+                <rect x="730" y="0" width="550" height="585" />
+              </clipPath>
+              <clipPath id={`body-clip-${bat.id}`}>
+                <rect x="548" y="0" width="184" height="585" />
+              </clipPath>
+            </defs>
+
+            {/* Body (static) */}
+            <g clipPath={`url(#body-clip-${bat.id})`}>
+              <g transform="translate(0.000000,585.000000) scale(0.100000,-0.100000)">
+                <path d={BAT_PATH} />
+              </g>
             </g>
-          </motion.svg>
+
+            {/* Left Wing (flapping) */}
+            <g clipPath={`url(#left-wing-clip-${bat.id})`}>
+              <motion.g
+                style={{ transformOrigin: "550px 292px" }}
+                animate={{
+                  rotate: [0, -22, 15, 0], // Flapping up and down
+                }}
+                transition={{
+                  duration: bat.flapDuration,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <g transform="translate(0.000000,585.000000) scale(0.100000,-0.100000)">
+                  <path d={BAT_PATH} />
+                </g>
+              </motion.g>
+            </g>
+
+            {/* Right Wing (flapping) */}
+            <g clipPath={`url(#right-wing-clip-${bat.id})`}>
+              <motion.g
+                style={{ transformOrigin: "730px 292px" }}
+                animate={{
+                  rotate: [0, 22, -15, 0], // Flapping up and down (mirrored)
+                }}
+                transition={{
+                  duration: bat.flapDuration,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <g transform="translate(0.000000,585.000000) scale(0.100000,-0.100000)">
+                  <path d={BAT_PATH} />
+                </g>
+              </motion.g>
+            </g>
+          </svg>
         </motion.div>
       ))}
     </div>

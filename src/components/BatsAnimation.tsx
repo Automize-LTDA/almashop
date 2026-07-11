@@ -75,6 +75,8 @@ export default function BatsAnimation() {
           style={{ 
             left: "50%",
             top: "50%",
+            marginLeft: "-150px",
+            marginTop: "-68px",
             zIndex: bat.zIndex,
             filter: bat.scale > 1.2 ? 'blur(2px)' : 'none', // Depth of field effect
             perspective: 800,

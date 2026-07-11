@@ -94,13 +94,14 @@ export default function ProductDetail() {
             <p className="text-white/70 text-sm leading-relaxed mb-8">{product.description}</p>
           </motion.div>
 
+          {product.sizes && product.sizes.length > 0 && (
           <div className="mb-8">
             <div className="flex justify-between items-end mb-4">
               <span className="text-xs uppercase tracking-widest text-white/70">{t('product.select_size')}</span>
               <button className="text-xs uppercase tracking-widest border-b border-white/30 hover:border-white transition-colors pb-0.5">{t('product.size_guide')}</button>
             </div>
             <div className="grid grid-cols-4 gap-4">
-              {product.sizes.map((size) => (
+              {product.sizes.map((size: string) => (
                 <button
                   key={size}
                   onClick={() => setSelectedSize(size)}
@@ -115,6 +116,7 @@ export default function ProductDetail() {
               ))}
             </div>
           </div>
+          )}
 
           <div className="flex items-center gap-4 mb-8">
             <div className="flex items-center justify-between border border-white/20 px-4 py-3 w-32">

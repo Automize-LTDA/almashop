@@ -29,18 +29,18 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
           scrolled ? 'bg-alma-black/90 backdrop-blur-md py-4' : 'bg-transparent py-6'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between relative">
           {/* Mobile Menu Button */}
           <button className="md:hidden text-white" onClick={() => setMobileMenuOpen(true)}>
             <Menu size={24} />
           </button>
 
           {/* Logo */}
-          <Link to="/store" className="flex items-center">
+          <Link to="/store" className="flex items-center md:static absolute left-1/2 -translate-x-1/2 md:translate-x-0">
             <img 
               src="/images/favicon.png" 
               alt="ALMA Logo" 
-              className="h-10 md:h-14 object-contain hover:opacity-80 transition-opacity" 
+              className="h-12 md:h-14 object-contain hover:opacity-80 transition-opacity" 
             />
           </Link>
 

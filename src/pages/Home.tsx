@@ -113,7 +113,11 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
+        <div className={`grid gap-x-6 gap-y-16 ${
+          selectedCategory === 'accessories'
+            ? 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+            : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+        }`}>
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -125,6 +129,7 @@ export default function Home() {
 
 export function ProductCard({ product }: { product: any }) {
   const [isHovered, setIsHovered] = useState(false);
+  const isAccessory = product.category === 'accessories';
 
   return (
     <Link 
@@ -133,7 +138,7 @@ export function ProductCard({ product }: { product: any }) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative aspect-[3/4] bg-alma-gray mb-6 overflow-hidden">
+      <div className={`relative aspect-[3/4] mb-6 overflow-hidden ${isAccessory ? 'bg-transparent' : 'bg-alma-gray'}`}>
         {product.originalPrice && (
           <div className="absolute top-4 right-4 z-20 bg-red-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">
             OFFER
@@ -151,7 +156,7 @@ export function ProductCard({ product }: { product: any }) {
             className={`w-full h-full object-cover transition-transform duration-1000 ${isHovered ? 'scale-105 opacity-0' : 'scale-100 opacity-100'}`} 
           />
         </div>
-        <div className="absolute inset-0 bg-alma-dark">
+        <div className={`absolute inset-0 ${isAccessory ? 'bg-transparent' : 'bg-alma-dark'}`}>
           <img 
             src={product.images[1] || product.images[0]} 
             alt={`${product.name} on model`} 

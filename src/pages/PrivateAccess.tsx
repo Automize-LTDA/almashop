@@ -16,7 +16,7 @@ export default function PrivateAccess() {
     // Show content after a short delay for the cinematic black screen effect
     const timer = setTimeout(() => {
       setShowContent(true);
-    }, 1500);
+    }, 1100);
     return () => clearTimeout(timer);
   }, []);
 
@@ -49,7 +49,7 @@ export default function PrivateAccess() {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="absolute inset-0 z-20 pointer-events-none"
           >
             <BatsAnimation />

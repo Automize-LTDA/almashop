@@ -24,7 +24,7 @@ export default function BatsAnimation() {
   useEffect(() => {
     // Generate random bats
     const isMobile = window.innerWidth < 768;
-    const numBats = isMobile ? 15 : 40;
+    const numBats = isMobile ? 8 : 22; // Reduced counts to prevent lagging on mobile/transition
     
     const newBats: BatProps[] = Array.from({ length: numBats }).map((_, i) => {
       // Start near the center of the screen
@@ -41,12 +41,12 @@ export default function BatsAnimation() {
         initialY,
         targetX,
         targetY,
-        duration: 1.5 + Math.random() * 2,
-        delay: Math.random() * 1.5,
-        scale: 0.05 + Math.random() * 0.1, // Start very tiny
-        targetScale: 10 + Math.random() * 25, // Scale up massively (flying into the camera)
+        duration: 1.2 + Math.random() * 1.8,
+        delay: Math.random() * 1.2,
+        scale: 0.005 + Math.random() * 0.01, // Start extremely tiny (relative to 300px base width)
+        targetScale: 1.2 + Math.random() * 1.8, // End at large size (up to 900px) with zero blur/pixelation
         zIndex: 50,
-        flapDuration: 0.4 + Math.random() * 0.2, // Synchronized wing flap speed per bat
+        flapDuration: 0.35 + Math.random() * 0.15, // Synchronized wing flap speed per bat
       };
     });
 
@@ -76,12 +76,13 @@ export default function BatsAnimation() {
             zIndex: bat.zIndex,
             filter: bat.scale > 1.2 ? 'blur(2px)' : 'none', // Depth of field effect
             perspective: 800,
-            transformStyle: "preserve-3d"
+            transformStyle: "preserve-3d",
+            willChange: "transform, opacity" // Hardware acceleration
           }}
         >
           <svg
-            width="40"
-            height="18"
+            width="300"
+            height="137"
             viewBox="0 0 1280 585"
             fill="currentColor"
             className="text-black/80 dark:text-black origin-center"

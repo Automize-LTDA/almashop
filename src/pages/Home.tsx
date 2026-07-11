@@ -12,6 +12,8 @@ export default function Home() {
     ? mockProducts
     : mockProducts.filter(product => product.category === selectedCategory);
 
+  const promoProducts = mockProducts.filter(product => product.originalPrice !== undefined);
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -52,6 +54,28 @@ export default function Home() {
           </motion.button>
         </div>
       </section>
+
+      {/* Promotions Section */}
+      {promoProducts.length > 0 && (
+        <section className="py-20 px-6 max-w-[1400px] mx-auto border-b border-white/5">
+          <div className="flex justify-between items-end mb-12">
+            <div>
+              <span className="text-[10px] font-bold tracking-[0.4em] text-red-500 uppercase mb-2 block">
+                {t('home.special_offers_badge')}
+              </span>
+              <h2 className="text-3xl md:text-5xl font-display uppercase tracking-widest">
+                {t('home.promotions_title')}
+              </h2>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
+            {promoProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* Latest Drop Section */}
       <section className="py-24 px-6 max-w-[1400px] mx-auto">
@@ -99,7 +123,7 @@ export default function Home() {
   );
 }
 
-function ProductCard({ product }: { product: any }) {
+export function ProductCard({ product }: { product: any }) {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -110,6 +134,11 @@ function ProductCard({ product }: { product: any }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative aspect-[3/4] bg-alma-gray mb-6 overflow-hidden">
+        {product.originalPrice && (
+          <div className="absolute top-4 right-4 z-20 bg-red-600 text-white text-[9px] font-bold uppercase tracking-widest px-2 py-1">
+            OFFER
+          </div>
+        )}
         {product.badge && (
           <div className="absolute top-4 left-4 z-20 bg-white text-black text-[10px] font-bold uppercase tracking-widest px-2 py-1">
             {product.badge}
@@ -146,9 +175,16 @@ function ProductCard({ product }: { product: any }) {
             ))}
           </div>
         </div>
-        <span className="font-display tracking-widest text-sm whitespace-nowrap">
-          R$ {product.price.toFixed(2)}
-        </span>
+        <div className="flex flex-col items-end">
+          {product.originalPrice && (
+            <span className="font-display tracking-widest text-xs text-white/40 line-through mb-1">
+              R$ {product.originalPrice.toFixed(2)}
+            </span>
+          )}
+          <span className="font-display tracking-widest text-sm whitespace-nowrap text-white font-medium">
+            R$ {product.price.toFixed(2)}
+          </span>
+        </div>
       </div>
     </Link>
   );

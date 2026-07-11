@@ -9,19 +9,14 @@ export default function WelcomeDiscountModal() {
   const [copied, setCopied] = useState(false);
 
   useEffect(() => {
-    // Check if user has already dismissed the modal
-    const isDismissed = localStorage.getItem('alma_welcome_dismissed');
-    if (!isDismissed) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 3000); // Show modal after 3 seconds
-      return () => clearTimeout(timer);
-    }
+    const timer = setTimeout(() => {
+      setIsOpen(true);
+    }, 3000); // Show modal after 3 seconds
+    return () => clearTimeout(timer);
   }, []);
 
   const handleClose = () => {
     setIsOpen(false);
-    localStorage.setItem('alma_welcome_dismissed', 'true');
   };
 
   const handleCopy = () => {

@@ -18,7 +18,9 @@
   "home": {
     "latest_drop": "ÚLTIMO DROP",
     "shop_all": "VER TUDO",
-    "all_categories": "TUDO"
+    "all_categories": "TUDO",
+    "special_offers_badge": "OFERTAS ESPECIAIS",
+    "promotions_title": "PROMOÇÕES"
   },
   "welcome": {
     "badge": "MEMBRO EXCLUSIVO",

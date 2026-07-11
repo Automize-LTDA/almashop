@@ -4,10 +4,10 @@ export interface Product {
   price: number;
   images: string[]; // [0] flat, [1] on model (or alternative view)
   colors: string[];
-  sizes: string[];
   badge?: 'NEW' | 'SOLD OUT';
   description: string;
   category: 'tshirts' | 'hoodies' | 'pants' | 'shoes' | 'accessories';
+  originalPrice?: number;
 }
 
 export const mockProducts: Product[] = [
@@ -20,7 +20,8 @@ export const mockProducts: Product[] = [
     sizes: ['P', 'M', 'G', 'GG'],
     badge: 'NEW',
     description: 'Camiseta oversized premium de alta gramatura (240gsm). Modelagem quadrada e caimento estruturado.',
-    category: 'tshirts'
+    category: 'tshirts',
+    originalPrice: 249.90
   },
   {
     id: '2',
@@ -31,7 +32,8 @@ export const mockProducts: Product[] = [
     sizes: ['P', 'M', 'G', 'GG'],
     badge: 'NEW',
     description: 'Moletom canguru em algodão premium com interior peluciado. Caimento super oversized.',
-    category: 'hoodies'
+    category: 'hoodies',
+    originalPrice: 429.90
   },
   {
     id: '3',
@@ -52,7 +54,8 @@ export const mockProducts: Product[] = [
     sizes: ['38', '40', '42', '44'],
     badge: 'NEW',
     description: 'Calça jeans modelagem wide fit com detalhes destroyed artesanais e lavagem vintage estonada.',
-    category: 'pants'
+    category: 'pants',
+    originalPrice: 589.90
   },
   {
     id: '5',
@@ -74,5 +77,17 @@ export const mockProducts: Product[] = [
     sizes: ['39', '40', '41', '42', '43', '44'],
     description: 'Bota tática militar com zíper rápido de abertura, solado tratorado Vibram e tecido balístico.',
     category: 'shoes'
+  },
+  {
+    id: '7',
+    name: 'TACTICAL RIBBED BEANIE',
+    price: 99.90,
+    images: ['/images/product_beanie.jpg', '/images/hero_streetwear.jpg'],
+    colors: ['#050505'],
+    sizes: ['U'],
+    badge: 'NEW',
+    description: 'Touca beanie canelada em malha pesada com etiqueta bordada de alta densidade.',
+    category: 'accessories',
+    originalPrice: 149.90
   }
 ];

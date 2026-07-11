@@ -47,11 +47,11 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] uppercase font-medium">
             <Link to="/store" className="text-white hover:text-gray-400 transition-colors">{t('nav.new_drop')}</Link>
-            <Link to="/store" className="text-white hover:text-gray-400 transition-colors">{t('nav.shop')}</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.tshirts')}</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.hoodies')}</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.pants')}</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.accessories')}</Link>
+            <Link to="/store/category/tshirts" className="text-white/60 hover:text-white transition-colors">{t('nav.tshirts')}</Link>
+            <Link to="/store/category/hoodies" className="text-white/60 hover:text-white transition-colors">{t('nav.hoodies')}</Link>
+            <Link to="/store/category/pants" className="text-white/60 hover:text-white transition-colors">{t('nav.pants')}</Link>
+            <Link to="/store/category/shoes" className="text-white/60 hover:text-white transition-colors">{t('nav.shoes')}</Link>
+            <Link to="/store/category/accessories" className="text-white/60 hover:text-white transition-colors">{t('nav.accessories')}</Link>
           </div>
 
           {/* Icons */}
@@ -102,10 +102,11 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
             
             <div className="flex flex-col space-y-6 text-2xl font-display font-medium uppercase tracking-widest">
               <Link to="/store" onClick={() => setMobileMenuOpen(false)}>{t('nav.new_drop')}</Link>
-              <Link to="/store" onClick={() => setMobileMenuOpen(false)}>{t('nav.shop')}</Link>
-              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.tshirts')}</Link>
-              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.hoodies')}</Link>
-              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.pants')}</Link>
+              <Link to="/store/category/tshirts" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.tshirts')}</Link>
+              <Link to="/store/category/hoodies" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.hoodies')}</Link>
+              <Link to="/store/category/pants" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.pants')}</Link>
+              <Link to="/store/category/shoes" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.shoes')}</Link>
+              <Link to="/store/category/accessories" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.accessories')}</Link>
             </div>
           </motion.div>
         )}

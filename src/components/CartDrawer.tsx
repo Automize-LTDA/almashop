@@ -30,14 +30,15 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-black/60 z-50"
           />
           <motion.div
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-alma-dark border-l border-white/10 z-50 flex flex-col"
+            style={{ willChange: 'transform' }}
           >
             <div className="flex items-center justify-between p-6 border-b border-white/10">
               <h2 className="text-lg font-display tracking-widest uppercase">{t('cart.your_cart')} (1)</h2>

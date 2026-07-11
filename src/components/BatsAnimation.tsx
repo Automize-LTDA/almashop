@@ -24,7 +24,7 @@ export default function BatsAnimation() {
   useEffect(() => {
     // Generate random bats
     const isMobile = window.innerWidth < 768;
-    const numBats = isMobile ? 8 : 22; // Reduced counts to prevent lagging on mobile/transition
+    const numBats = isMobile ? 16 : 38; // Increased counts back up for a denser flock now that transition lag is solved
     
     const newBats: BatProps[] = Array.from({ length: numBats }).map((_, i) => {
       // Start near the center of the screen

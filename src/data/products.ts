@@ -4,6 +4,7 @@ export interface Product {
   price: number;
   images: string[]; // [0] flat, [1] on model (or alternative view)
   colors: string[];
+  sizes?: string[];
   badge?: 'NEW' | 'SOLD OUT';
   description: string;
   category: 'tshirts' | 'hoodies' | 'pants' | 'shoes' | 'accessories';

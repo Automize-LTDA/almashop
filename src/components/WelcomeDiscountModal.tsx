@@ -28,83 +28,53 @@ export default function WelcomeDiscountModal() {
   return (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Overlay background */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+        <motion.div
+          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 20, scale: 0.95 }}
+          transition={{ type: 'spring', damping: 20, stiffness: 150 }}
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:bottom-8 md:right-8 w-[290px] md:w-[320px] bg-black border border-white/20 p-5 text-white z-50 shadow-2xl flex flex-col select-none"
+        >
+          {/* Close Button */}
+          <button 
             onClick={handleClose}
-            className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-6"
+            className="absolute top-3 right-3 text-white/40 hover:text-white transition-colors duration-300"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-[310px] md:max-w-[420px] bg-alma-black border-2 border-white/20 px-5 md:px-8 py-8 md:py-12 text-center text-white select-none overflow-hidden"
+            <X size={16} strokeWidth={1.5} />
+          </button>
+
+          <div className="flex flex-col pr-6">
+            <span className="text-[9px] font-bold uppercase tracking-[0.3em] text-white/40 mb-1">
+              {t('welcome.badge')}
+            </span>
+            
+            <h2 className="text-sm font-display font-bold uppercase tracking-wider text-white leading-tight mb-2">
+              {t('welcome.title')} — 10% OFF
+            </h2>
+
+            <p className="text-[10px] tracking-widest text-white/50 uppercase leading-relaxed mb-4">
+              {t('welcome.description_short')}
+            </p>
+
+            {/* Compact Copy Box */}
+            <div 
+              onClick={handleCopy}
+              className="flex items-center justify-between border border-white/10 bg-alma-dark/50 px-3 py-2 cursor-pointer hover:border-white/30 transition-colors duration-300 group"
             >
-              {/* Decorative side accent lines */}
-              <div className="absolute top-0 left-0 w-1.5 md:w-2 h-full bg-white/10" />
-              <div className="absolute top-0 right-0 w-1.5 md:w-2 h-full bg-white/10" />
-
-              {/* Close Button */}
-              <button 
-                onClick={handleClose}
-                className="absolute top-3 right-3 text-white/50 hover:text-white transition-colors duration-300"
-              >
-                <X size={18} strokeWidth={1.5} />
-              </button>
-
-              <div className="flex flex-col items-center">
-                <span className="text-[8px] md:text-[10px] font-bold uppercase tracking-[0.4em] text-white/40 mb-2 md:mb-3 block">
-                  {t('welcome.badge')}
+              <span className="font-display font-bold tracking-[0.2em] text-xs">ALMA10</span>
+              <div className="flex items-center gap-1.5 text-white/50 group-hover:text-white transition-colors duration-300">
+                <span className="text-[8px] tracking-widest uppercase">
+                  {copied ? t('welcome.copied') : t('welcome.copy_short')}
                 </span>
-                
-                <h2 className="text-2xl md:text-5xl font-display font-bold uppercase tracking-widest mb-1 md:mb-2 leading-none">
-                  {t('welcome.title')}
-                </h2>
-                
-                <h3 className="text-4xl md:text-7xl font-display font-bold uppercase tracking-tighter text-white mb-4 md:mb-6 leading-none">
-                  10% OFF
-                </h3>
-
-                <p className="text-[10px] md:text-sm tracking-widest text-white/60 uppercase max-w-[240px] md:max-w-[280px] leading-relaxed mb-6 md:mb-8">
-                  {t('welcome.description')}
-                </p>
-
-                {/* Coupon Copy Box */}
-                <div 
-                  onClick={handleCopy}
-                  className="w-full max-w-[240px] md:max-w-[280px] border border-white/20 bg-alma-dark flex items-center justify-between p-3 md:p-4 cursor-pointer hover:border-white transition-colors duration-300 group"
-                >
-                  <span className="font-display font-bold tracking-[0.3em] text-base md:text-xl ml-2">ALMA10</span>
-                  
-                  <button className="text-white/60 group-hover:text-white transition-colors duration-300">
-                    {copied ? (
-                      <Check size={16} className="text-green-400" />
-                    ) : (
-                      <Copy size={16} strokeWidth={1.5} />
-                    )}
-                  </button>
-                </div>
-                
-                <span className="text-[8px] md:text-[10px] font-medium tracking-wider text-white/40 mt-2 md:mt-3">
-                  {copied ? t('welcome.copied') : t('welcome.copy_tip')}
-                </span>
-
-                {/* Confirm Button */}
-                <button
-                  onClick={handleClose}
-                  className="mt-6 md:mt-10 w-full max-w-[240px] md:max-w-[280px] bg-white text-black py-3 md:py-4 uppercase font-display tracking-[0.2em] text-[10px] md:text-xs font-bold hover:bg-black hover:text-white border border-transparent hover:border-white transition-all duration-300"
-                >
-                  {t('welcome.continue')}
-                </button>
+                {copied ? (
+                  <Check size={12} className="text-green-400" />
+                ) : (
+                  <Copy size={12} strokeWidth={1.5} />
+                )}
               </div>
-            </motion.div>
-          </motion.div>
-        </>
+            </div>
+          </div>
+        </motion.div>
       )}
     </AnimatePresence>
   );

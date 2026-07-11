@@ -26,8 +26,10 @@
     "badge": "MEMBRO EXCLUSIVO",
     "title": "BEM-VINDO À ALMA",
     "description": "USE ESTE CÓDIGO EXCLUSIVO DE BOAS-VINDAS NO SEU PRÓXIMO CHECKOUT PARA OBTER O DESCONTO.",
+    "description_short": "USE ESTE CUPOM EXCLUSIVO NO SEU CHECKOUT PARA OBTER O DESCONTO.",
     "copy_tip": "CLIQUE PARA COPIAR O CÓDIGO",
-    "copied": "CÓDIGO COPIADO!",
+    "copy_short": "COPIAR",
+    "copied": "COPIADO!",
     "continue": "ACESSAR A LOJA"
   },
   "product": {

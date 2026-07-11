@@ -26,8 +26,10 @@
     "badge": "EXCLUSIVE MEMBER",
     "title": "WELCOME TO ALMA",
     "description": "USE THIS EXCLUSIVE WELCOME COUPON CODE ON YOUR NEXT CHECKOUT TO GET YOUR DISCOUNT.",
+    "description_short": "USE THIS EXCLUSIVE COUPON AT CHECKOUT TO CLAIM YOUR DISCOUNT.",
     "copy_tip": "CLICK TO COPY CODE",
-    "copied": "CODE COPIED!",
+    "copy_short": "COPY",
+    "copied": "COPIED!",
     "continue": "ENTER SHOP"
   },
   "product": {

@@ -27,13 +27,13 @@ export default function BatsAnimation() {
     const numBats = isMobile ? 16 : 38; // Increased counts back up for a denser flock now that transition lag is solved
     
     const newBats: BatProps[] = Array.from({ length: numBats }).map((_, i) => {
-      // Start near the center of the screen
-      const initialX = window.innerWidth / 2 + (Math.random() - 0.5) * 100;
-      const initialY = window.innerHeight / 2 + (Math.random() - 0.5) * 100;
+      // Start near the center of the screen (offset from 50%, 50%)
+      const initialX = (Math.random() - 0.5) * 80;
+      const initialY = (Math.random() - 0.5) * 80;
       
-      // Fan outwards towards the edges of the screen
-      const targetX = window.innerWidth / 2 + (Math.random() - 0.5) * window.innerWidth * 1.5;
-      const targetY = window.innerHeight / 2 + (Math.random() - 0.5) * window.innerHeight * 1.5;
+      // Fan outwards relative to the center
+      const targetX = (Math.random() - 0.5) * window.innerWidth * 1.5;
+      const targetY = (Math.random() - 0.5) * window.innerHeight * 1.5;
       
       return {
         id: i,
@@ -71,8 +71,10 @@ export default function BatsAnimation() {
             repeat: Infinity,
             ease: "easeIn" // Accelerates as it gets closer
           }}
-          className="absolute left-0 top-0 origin-center"
+          className="absolute origin-center"
           style={{ 
+            left: "50%",
+            top: "50%",
             zIndex: bat.zIndex,
             filter: bat.scale > 1.2 ? 'blur(2px)' : 'none', // Depth of field effect
             perspective: 800,

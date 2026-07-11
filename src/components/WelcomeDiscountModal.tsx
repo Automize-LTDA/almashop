@@ -49,7 +49,7 @@ export default function WelcomeDiscountModal() {
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative w-full max-w-[440px] bg-alma-black border-2 border-white/20 px-8 py-12 text-center text-white select-none overflow-hidden"
+              className="relative w-full max-w-[360px] md:max-w-[420px] bg-alma-black border-2 border-white/20 px-6 md:px-8 py-10 md:py-12 text-center text-white select-none overflow-hidden"
             >
               {/* Decorative side accent lines */}
               <div className="absolute top-0 left-0 w-2 h-full bg-white/10" />

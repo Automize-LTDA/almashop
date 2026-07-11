@@ -89,5 +89,77 @@ export const mockProducts: Product[] = [
     description: 'Touca beanie canelada em malha pesada com etiqueta bordada de alta densidade.',
     category: 'accessories',
     originalPrice: 149.90
+  },
+  {
+    id: 'cap-1',
+    name: 'ASTROS GALAXY CAP',
+    price: 149.90,
+    images: [
+      '/images/cap_astros-galaxy_flat.jpg',
+      '/images/cap_astros-galaxy_model.jpg'
+    ],
+    colors: ['#0d0d0d'],
+    sizes: ['U'],
+    badge: 'NEW',
+    description: 'Boné estruturado ASTROS GALAXY com bordado em alta definição e aba curva premium.',
+    category: 'accessories'
+  },
+  {
+    id: 'cap-2',
+    name: 'ASTROS STARS CAP',
+    price: 149.90,
+    images: [
+      '/images/cap_astros-stars_flat.jpg',
+      '/images/cap_astros-stars_model.jpg'
+    ],
+    colors: ['#0d0d0d'],
+    sizes: ['U'],
+    badge: 'NEW',
+    description: 'Boné ASTROS STARS em sarja pesada com bordados estelares contrastantes nas laterais e frente.',
+    category: 'accessories'
+  },
+  {
+    id: 'cap-3',
+    name: 'CHROME BLACK CAP',
+    price: 149.90,
+    images: [
+      '/images/cap_chrome-black_flat.jpg',
+      '/images/cap_chrome-black_model.jpg'
+    ],
+    colors: ['#0d0d0d'],
+    sizes: ['U'],
+    badge: 'NEW',
+    description: 'Minimalismo escuro com atitude pesada. O Chrome Black mistura estética gótica e streetwear premium com suas cruzes cromadas que se destacam.',
+    category: 'accessories',
+    originalPrice: 199.90
+  },
+  {
+    id: 'cap-4',
+    name: 'LA AMIRI SKULL CAP',
+    price: 169.90,
+    images: [
+      '/images/cap_la-amiri-skull_flat.jpg',
+      '/images/cap_la-amiri-skull_model.jpg'
+    ],
+    colors: ['#0d0d0d'],
+    sizes: ['U'],
+    badge: 'NEW',
+    description: 'O LA Amiri Skull combina a estética dark street com detalhes marcantes. O logo LA e o efeito de caveira criam uma vibração urbana premium.',
+    category: 'accessories',
+    originalPrice: 229.90
+  },
+  {
+    id: 'cap-5',
+    name: 'LA BONES CAP',
+    price: 149.90,
+    images: [
+      '/images/cap_la-bones_flat.jpg',
+      '/images/cap_la-bones_model.jpg'
+    ],
+    colors: ['#0d0d0d'],
+    sizes: ['U'],
+    badge: 'NEW',
+    description: 'Boné premium LA BONES com detalhe bordado de ossos no painel frontal e fecho snapback ajustável.',
+    category: 'accessories'
   }
 ];

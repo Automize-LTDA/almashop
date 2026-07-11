@@ -91,7 +91,7 @@ export default function Home() {
 
         {/* Category Tabs */}
         <div className="flex items-center space-x-8 overflow-x-auto pb-4 mb-16 border-b border-white/10 text-xs tracking-[0.2em] uppercase font-medium scrollbar-none">
-          {['all', 'tshirts', 'hoodies', 'pants', 'shoes'].map((category) => (
+          {['all', 'tshirts', 'hoodies', 'pants', 'shoes', 'accessories'].map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}

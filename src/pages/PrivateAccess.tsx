@@ -79,13 +79,13 @@ export default function PrivateAccess() {
             className="z-30 flex flex-col items-center justify-center w-full max-w-md px-6"
           >
             {/* Logo */}
-            <motion.img 
-              src="/images/favicon.png"
-              alt="Alma Logo"
-              className="h-32 md:h-44 mb-8 object-contain"
+            <motion.h1 
+              className="text-7xl md:text-8xl font-display font-bold tracking-widest text-white mb-8 uppercase"
               animate={{ opacity: [0.8, 1, 0.9, 1] }}
               transition={{ duration: 2, repeat: Infinity, repeatType: 'reverse' }}
-            />
+            >
+              ALMA
+            </motion.h1>
 
             <div className="text-center mb-6">
               <h2 className="text-2xl tracking-[0.2em] text-white/90 font-medium mb-3 uppercase">{t('private_access.title')}</h2>

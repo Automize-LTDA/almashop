@@ -36,8 +36,12 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
           </button>
 
           {/* Logo */}
-          <Link to="/store" className="text-2xl md:text-3xl font-display font-bold tracking-widest uppercase text-white hover:text-white/80 transition-colors">
-            ALMA
+          <Link to="/store" className="flex items-center">
+            <img 
+              src="/images/favicon.png" 
+              alt="ALMA Logo" 
+              className="h-10 md:h-14 object-contain hover:opacity-80 transition-opacity" 
+            />
           </Link>
 
           {/* Desktop Links */}
@@ -84,8 +88,12 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
             className="fixed inset-0 bg-alma-black z-50 flex flex-col px-6 py-8"
           >
             <div className="flex justify-between items-center mb-12">
-              <Link to="/store" className="text-2xl font-display font-bold tracking-widest text-white" onClick={() => setMobileMenuOpen(false)}>
-                ALMA
+              <Link to="/store" className="flex items-center" onClick={() => setMobileMenuOpen(false)}>
+                <img 
+                  src="/images/favicon.png" 
+                  alt="ALMA Logo" 
+                  className="h-8 object-contain" 
+                />
               </Link>
               <button onClick={() => setMobileMenuOpen(false)} className="text-white text-sm tracking-widest uppercase">
                 Close

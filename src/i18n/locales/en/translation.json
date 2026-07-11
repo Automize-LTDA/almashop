@@ -12,11 +12,21 @@
     "tshirts": "T-SHIRTS",
     "hoodies": "HOODIES",
     "pants": "PANTS",
+    "shoes": "SHOES",
     "accessories": "ACCESSORIES"
   },
   "home": {
     "latest_drop": "LATEST DROP",
-    "shop_all": "SHOP ALL"
+    "shop_all": "SHOP ALL",
+    "all_categories": "ALL"
+  },
+  "welcome": {
+    "badge": "EXCLUSIVE MEMBER",
+    "title": "WELCOME TO ALMA",
+    "description": "USE THIS EXCLUSIVE WELCOME COUPON CODE ON YOUR NEXT CHECKOUT TO GET YOUR DISCOUNT.",
+    "copy_tip": "CLICK TO COPY CODE",
+    "copied": "CODE COPIED!",
+    "continue": "ENTER SHOP"
   },
   "product": {
     "select_size": "Select Size",

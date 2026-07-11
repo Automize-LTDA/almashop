@@ -6,6 +6,11 @@ import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const { t } = useTranslation();
+  const [selectedCategory, setSelectedCategory] = useState<string>('all');
+
+  const filteredProducts = selectedCategory === 'all'
+    ? mockProducts
+    : mockProducts.filter(product => product.category === selectedCategory);
 
   return (
     <div className="w-full">
@@ -52,13 +57,40 @@ export default function Home() {
       <section className="py-24 px-6 max-w-[1400px] mx-auto">
         <div className="flex justify-between items-end mb-12">
           <h2 className="text-3xl md:text-5xl font-display uppercase tracking-widest">{t('home.latest_drop')}</h2>
-          <a href="#" className="hidden md:block text-sm uppercase tracking-[0.2em] border-b border-white pb-1 hover:text-white/60 hover:border-white/60 transition-colors">
+          <button 
+            onClick={() => setSelectedCategory('all')}
+            className="hidden md:block text-sm uppercase tracking-[0.2em] border-b border-white pb-1 hover:text-white/60 hover:border-white/60 transition-colors"
+          >
             {t('home.shop_all')}
-          </a>
+          </button>
+        </div>
+
+        {/* Category Tabs */}
+        <div className="flex items-center space-x-8 overflow-x-auto pb-4 mb-16 border-b border-white/10 text-xs tracking-[0.2em] uppercase font-medium scrollbar-none">
+          {['all', 'tshirts', 'hoodies', 'pants', 'shoes'].map((category) => (
+            <button
+              key={category}
+              onClick={() => setSelectedCategory(category)}
+              className={`pb-3 transition-colors relative whitespace-nowrap ${
+                selectedCategory === category 
+                  ? 'text-white font-semibold' 
+                  : 'text-white/40 hover:text-white'
+              }`}
+            >
+              {category === 'all' ? t('home.all_categories') : t(`nav.${category}`)}
+              {selectedCategory === category && (
+                <motion.div 
+                  layoutId="activeCategory"
+                  className="absolute bottom-0 left-0 right-0 h-[2px] bg-white"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
+            </button>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-16">
-          {mockProducts.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>

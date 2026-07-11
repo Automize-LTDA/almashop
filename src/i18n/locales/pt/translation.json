@@ -12,11 +12,21 @@
     "tshirts": "CAMISETAS",
     "hoodies": "MOLETONS",
     "pants": "CALÇAS",
+    "shoes": "TÊNIS",
     "accessories": "ACESSÓRIOS"
   },
   "home": {
     "latest_drop": "ÚLTIMO DROP",
-    "shop_all": "VER TUDO"
+    "shop_all": "VER TUDO",
+    "all_categories": "TUDO"
+  },
+  "welcome": {
+    "badge": "MEMBRO EXCLUSIVO",
+    "title": "BEM-VINDO À ALMA",
+    "description": "USE ESTE CÓDIGO EXCLUSIVO DE BOAS-VINDAS NO SEU PRÓXIMO CHECKOUT PARA OBTER O DESCONTO.",
+    "copy_tip": "CLIQUE PARA COPIAR O CÓDIGO",
+    "copied": "CÓDIGO COPIADO!",
+    "continue": "ACESSAR A LOJA"
   },
   "product": {
     "select_size": "Selecione o Tamanho",

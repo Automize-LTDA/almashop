@@ -1,6 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import CartDrawer from '../components/CartDrawer';
+import WelcomeDiscountModal from '../components/WelcomeDiscountModal';
 import { useState } from 'react';
 
 export default function StoreLayout() {
@@ -8,6 +9,7 @@ export default function StoreLayout() {
 
   return (
     <div className="min-h-screen bg-alma-black text-white selection:bg-white selection:text-black font-sans">
+      <WelcomeDiscountModal />
       <Navbar onOpenCart={() => setIsCartOpen(true)} cartCount={1} />
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       <main>

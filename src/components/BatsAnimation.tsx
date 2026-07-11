@@ -71,7 +71,7 @@ export default function BatsAnimation() {
             repeat: Infinity,
             ease: "easeIn" // Accelerates as it gets closer
           }}
-          className="absolute origin-center"
+          className="absolute left-0 top-0 origin-center"
           style={{ 
             zIndex: bat.zIndex,
             filter: bat.scale > 1.2 ? 'blur(2px)' : 'none', // Depth of field effect

@@ -41,7 +41,7 @@ export default function WelcomeDiscountModal() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: 'spring', damping: 22, stiffness: 160 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-[300px] md:max-w-[340px] bg-black border border-white/20 p-6 text-white z-50 shadow-2xl flex flex-col select-none"
+            className="relative w-full max-w-[300px] md:max-w-[340px] bg-black/45 backdrop-blur-md border border-white/20 p-6 text-white z-50 shadow-2xl flex flex-col select-none"
           >
             {/* Close Button */}
             <button 

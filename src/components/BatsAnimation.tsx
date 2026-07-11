@@ -75,6 +75,8 @@ export default function BatsAnimation() {
           style={{ 
             zIndex: bat.zIndex,
             filter: bat.scale > 1.2 ? 'blur(2px)' : 'none', // Depth of field effect
+            perspective: 800,
+            transformStyle: "preserve-3d"
           }}
         >
           <svg
@@ -108,7 +110,8 @@ export default function BatsAnimation() {
               <motion.g
                 style={{ transformOrigin: "550px 292px" }}
                 animate={{
-                  rotate: [0, -22, 15, 0], // Flapping up and down
+                  rotateY: [0, 50, -35, 0], // Sweeping forward and backward in 3D
+                  rotate: [0, -12, 8, 0],   // Gentle up and down stroke
                 }}
                 transition={{
                   duration: bat.flapDuration,
@@ -127,7 +130,8 @@ export default function BatsAnimation() {
               <motion.g
                 style={{ transformOrigin: "730px 292px" }}
                 animate={{
-                  rotate: [0, 22, -15, 0], // Flapping up and down (mirrored)
+                  rotateY: [0, -50, 35, 0], // Sweeping forward and backward in 3D (mirrored)
+                  rotate: [0, 15, -10, 0],   // Gentle up and down stroke
                 }}
                 transition={{
                   duration: bat.flapDuration,

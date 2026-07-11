@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { ShoppingBag, Search, User, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface NavbarProps {
   onOpenCart: () => void;
@@ -9,6 +10,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
+  const { t } = useTranslation();
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -40,12 +42,12 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
 
           {/* Desktop Links */}
           <div className="hidden md:flex items-center space-x-8 text-xs tracking-[0.2em] uppercase font-medium">
-            <Link to="/store" className="text-white hover:text-gray-400 transition-colors">New Drop</Link>
-            <Link to="/store" className="text-white hover:text-gray-400 transition-colors">Shop</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">T-Shirts</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">Hoodies</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">Pants</Link>
-            <Link to="/store" className="text-white/60 hover:text-white transition-colors">Accessories</Link>
+            <Link to="/store" className="text-white hover:text-gray-400 transition-colors">{t('nav.new_drop')}</Link>
+            <Link to="/store" className="text-white hover:text-gray-400 transition-colors">{t('nav.shop')}</Link>
+            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.tshirts')}</Link>
+            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.hoodies')}</Link>
+            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.pants')}</Link>
+            <Link to="/store" className="text-white/60 hover:text-white transition-colors">{t('nav.accessories')}</Link>
           </div>
 
           {/* Icons */}
@@ -91,11 +93,11 @@ export default function Navbar({ onOpenCart, cartCount }: NavbarProps) {
             </div>
             
             <div className="flex flex-col space-y-6 text-2xl font-display font-medium uppercase tracking-widest">
-              <Link to="/store" onClick={() => setMobileMenuOpen(false)}>New Drop</Link>
-              <Link to="/store" onClick={() => setMobileMenuOpen(false)}>Shop</Link>
-              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>T-Shirts</Link>
-              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>Hoodies</Link>
-              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>Pants</Link>
+              <Link to="/store" onClick={() => setMobileMenuOpen(false)}>{t('nav.new_drop')}</Link>
+              <Link to="/store" onClick={() => setMobileMenuOpen(false)}>{t('nav.shop')}</Link>
+              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.tshirts')}</Link>
+              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.hoodies')}</Link>
+              <Link to="/store" className="text-white/60" onClick={() => setMobileMenuOpen(false)}>{t('nav.pants')}</Link>
             </div>
           </motion.div>
         )}

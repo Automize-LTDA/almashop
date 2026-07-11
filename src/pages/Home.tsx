@@ -2,8 +2,11 @@ import { motion } from 'framer-motion';
 import { mockProducts } from '../data/products';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -24,7 +27,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-white text-xs md:text-sm tracking-[0.4em] uppercase mb-4"
           >
-            New Drop
+            {t('nav.new_drop')}
           </motion.h2>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -40,7 +43,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="bg-white text-black px-8 py-4 font-display uppercase tracking-[0.2em] text-sm font-bold hover:bg-black hover:text-white border border-transparent hover:border-white transition-all duration-300"
           >
-            Shop the drop
+            {t('nav.shop')}
           </motion.button>
         </div>
       </section>
@@ -48,9 +51,9 @@ export default function Home() {
       {/* Latest Drop Section */}
       <section className="py-24 px-6 max-w-[1400px] mx-auto">
         <div className="flex justify-between items-end mb-12">
-          <h2 className="text-3xl md:text-5xl font-display uppercase tracking-widest">Latest Drop</h2>
+          <h2 className="text-3xl md:text-5xl font-display uppercase tracking-widest">{t('home.latest_drop')}</h2>
           <a href="#" className="hidden md:block text-sm uppercase tracking-[0.2em] border-b border-white pb-1 hover:text-white/60 hover:border-white/60 transition-colors">
-            View All
+            {t('home.shop_all')}
           </a>
         </div>
 

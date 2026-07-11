@@ -1,0 +1,49 @@
+{
+  "private_access": {
+    "title": "Acesso Privado",
+    "subtitle": "Insira o código para acessar o drop",
+    "password_placeholder": "SENHA",
+    "enter_button": "Entrar",
+    "invalid_password": "SENHA INVÁLIDA"
+  },
+  "nav": {
+    "new_drop": "NOVO DROP",
+    "shop": "LOJA",
+    "tshirts": "CAMISETAS",
+    "hoodies": "MOLETONS",
+    "pants": "CALÇAS",
+    "accessories": "ACESSÓRIOS"
+  },
+  "home": {
+    "latest_drop": "ÚLTIMO DROP",
+    "shop_all": "VER TUDO"
+  },
+  "product": {
+    "select_size": "Selecione o Tamanho",
+    "size_guide": "Guia de Medidas",
+    "add_to_cart": "Adicionar ao Carrinho",
+    "you_may_also_like": "Você Também Pode Gostar",
+    "details_title": "Detalhes e Composição",
+    "details_content": "100% Algodão Heavyweight 240gsm. Costuras reforçadas. Lavagem estonada artesanal.",
+    "fit_title": "Modelagem e Caimento",
+    "fit_content": "Modelagem true-to-size oversized. Para um caimento mais justo, compre um tamanho menor.",
+    "care_title": "Instruções de Lavagem",
+    "care_content": "Lavar à mão ou ciclo delicado com água fria. Não secar na máquina. Secar à sombra.",
+    "shipping_title": "Frete e Devoluções",
+    "shipping_content": "Entregas para todo o Brasil. Trocas gratuitas até 7 dias após o recebimento."
+  },
+  "cart": {
+    "your_cart": "Seu Carrinho",
+    "empty": "Seu carrinho está vazio.",
+    "subtotal": "Subtotal",
+    "shipping_calc": "Frete e impostos calculados no checkout.",
+    "checkout": "Finalizar Compra",
+    "continue_shopping": "Continuar Comprando",
+    "free_shipping": "FRETE GRÁTIS EM COMPRAS ACIMA DE R$ 500",
+    "remove": "Remover"
+  },
+  "footer": {
+    "terms": "Termos",
+    "privacy": "Privacidade"
+  }
+}

@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Minus, Plus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -7,6 +8,7 @@ interface CartDrawerProps {
 }
 
 export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
+  const { t } = useTranslation();
   // Mock cart items for now
   const cartItems = [
     {
@@ -38,7 +40,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             className="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-alma-dark border-l border-white/10 z-50 flex flex-col"
           >
             <div className="flex items-center justify-between p-6 border-b border-white/10">
-              <h2 className="text-lg font-display tracking-widest uppercase">Cart (1)</h2>
+              <h2 className="text-lg font-display tracking-widest uppercase">{t('cart.your_cart')} (1)</h2>
               <button onClick={onClose} className="text-white/60 hover:text-white transition-colors">
                 <X size={24} strokeWidth={1.5} />
               </button>
@@ -70,11 +72,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
             <div className="p-6 border-t border-white/10 bg-alma-black">
               <div className="flex justify-between text-sm uppercase tracking-wider mb-6">
-                <span className="text-white/60">Subtotal</span>
+                <span className="text-white/60">{t('cart.subtotal')}</span>
                 <span>R$ 189.90</span>
               </div>
               <button className="w-full bg-white text-black py-4 font-display uppercase tracking-[0.2em] font-bold hover:bg-white/90 transition-colors">
-                Checkout
+                {t('cart.checkout')}
               </button>
             </div>
           </motion.div>

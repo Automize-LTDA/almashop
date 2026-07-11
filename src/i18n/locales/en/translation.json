@@ -1,0 +1,49 @@
+{
+  "private_access": {
+    "title": "Private Access",
+    "subtitle": "Enter the code to access the drop",
+    "password_placeholder": "PASSWORD",
+    "enter_button": "Enter",
+    "invalid_password": "INVALID PASSWORD"
+  },
+  "nav": {
+    "new_drop": "NEW DROP",
+    "shop": "SHOP",
+    "tshirts": "T-SHIRTS",
+    "hoodies": "HOODIES",
+    "pants": "PANTS",
+    "accessories": "ACCESSORIES"
+  },
+  "home": {
+    "latest_drop": "LATEST DROP",
+    "shop_all": "SHOP ALL"
+  },
+  "product": {
+    "select_size": "Select Size",
+    "size_guide": "Size Guide",
+    "add_to_cart": "Add to Cart",
+    "you_may_also_like": "You May Also Like",
+    "details_title": "Details & Composition",
+    "details_content": "100% Heavyweight Cotton 240gsm. Reinforced seams. Artisanal stonewash.",
+    "fit_title": "Fit & Sizing",
+    "fit_content": "True-to-size oversized fit. For a tighter fit, buy one size down.",
+    "care_title": "Care Instructions",
+    "care_content": "Hand wash or gentle cycle with cold water. Do not tumble dry. Dry in shade.",
+    "shipping_title": "Shipping & Returns",
+    "shipping_content": "Worldwide shipping available. Free returns up to 7 days after delivery."
+  },
+  "cart": {
+    "your_cart": "Your Cart",
+    "empty": "Your cart is empty.",
+    "subtotal": "Subtotal",
+    "shipping_calc": "Shipping and taxes calculated at checkout.",
+    "checkout": "Checkout",
+    "continue_shopping": "Continue Shopping",
+    "free_shipping": "FREE SHIPPING ON ORDERS OVER R$ 500",
+    "remove": "Remove"
+  },
+  "footer": {
+    "terms": "Terms",
+    "privacy": "Privacy"
+  }
+}

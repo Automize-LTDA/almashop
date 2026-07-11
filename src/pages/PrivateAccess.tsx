@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import BatsAnimation from '../components/BatsAnimation';
+import { useTranslation } from 'react-i18next';
 
 export default function PrivateAccess() {
+  const { t } = useTranslation();
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [unlocked, setUnlocked] = useState(false);
@@ -86,8 +88,8 @@ export default function PrivateAccess() {
             </motion.h1>
 
             <div className="text-center mb-6">
-              <h2 className="text-2xl tracking-[0.2em] text-white/90 font-medium mb-3 uppercase">Private Access</h2>
-              <p className="text-sm tracking-widest text-white/50 uppercase">Enter the code to access the drop</p>
+              <h2 className="text-2xl tracking-[0.2em] text-white/90 font-medium mb-3 uppercase">{t('private_access.title')}</h2>
+              <p className="text-sm tracking-widest text-white/50 uppercase">{t('private_access.subtitle')}</p>
             </div>
 
             <form onSubmit={handleSubmit} className="w-full flex flex-col items-center">
@@ -100,7 +102,7 @@ export default function PrivateAccess() {
                 className={`w-full max-w-[280px] bg-transparent border-b-2 text-center text-xl tracking-widest py-3 focus:outline-none transition-colors ${
                   error ? 'border-red-500 text-red-500' : 'border-white/30 focus:border-white text-white'
                 }`}
-                placeholder="PASSWORD"
+                placeholder={error ? t('private_access.invalid_password') : t('private_access.password_placeholder')}
                 autoFocus
               />
               
@@ -108,7 +110,7 @@ export default function PrivateAccess() {
                 type="submit"
                 className="mt-12 uppercase tracking-[0.3em] text-sm text-white/70 hover:text-white transition-colors duration-300 relative group overflow-hidden"
               >
-                <span className="relative z-10">Enter</span>
+                <span className="relative z-10">{t('private_access.enter_button')}</span>
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
               </button>
             </form>

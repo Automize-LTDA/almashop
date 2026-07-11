@@ -3,8 +3,10 @@ import { useParams, Link } from 'react-router-dom';
 import { mockProducts } from '../data/products';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronRight, ChevronLeft, Plus, Minus } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export default function ProductDetail() {
+  const { t } = useTranslation();
   const { id } = useParams();
   const product = mockProducts.find(p => p.id === id) || mockProducts[0];
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -17,10 +19,10 @@ export default function ProductDetail() {
   }, [id]);
 
   const accordions = [
-    { id: 'details', title: 'Details & Composition', content: '100% Algodão Heavyweight 240gsm. Costuras reforçadas. Lavagem estonada artesanal.' },
-    { id: 'fit', title: 'Fit & Sizing', content: 'Modelagem true-to-size oversized. Para um caimento mais justo, compre um tamanho menor.' },
-    { id: 'care', title: 'Care Instructions', content: 'Lavar à mão ou ciclo delicado com água fria. Não secar na máquina. Secar à sombra.' },
-    { id: 'shipping', title: 'Shipping & Returns', content: 'Entregas para todo o Brasil. Trocas gratuitas até 7 dias após o recebimento.' },
+    { id: 'details', title: t('product.details_title'), content: t('product.details_content') },
+    { id: 'fit', title: t('product.fit_title'), content: t('product.fit_content') },
+    { id: 'care', title: t('product.care_title'), content: t('product.care_content') },
+    { id: 'shipping', title: t('product.shipping_title'), content: t('product.shipping_content') },
   ];
 
   return (
@@ -29,7 +31,7 @@ export default function ProductDetail() {
       <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-white/50 mb-12">
         <Link to="/store" className="hover:text-white transition-colors">Home</Link>
         <ChevronRight size={12} />
-        <Link to="/store" className="hover:text-white transition-colors">Shop</Link>
+        <Link to="/store" className="hover:text-white transition-colors">{t('nav.shop')}</Link>
         <ChevronRight size={12} />
         <span className="text-white truncate">{product.name}</span>
       </div>
@@ -94,8 +96,8 @@ export default function ProductDetail() {
 
           <div className="mb-8">
             <div className="flex justify-between items-end mb-4">
-              <span className="text-xs uppercase tracking-widest text-white/70">Select Size</span>
-              <button className="text-xs uppercase tracking-widest border-b border-white/30 hover:border-white transition-colors pb-0.5">Size Guide</button>
+              <span className="text-xs uppercase tracking-widest text-white/70">{t('product.select_size')}</span>
+              <button className="text-xs uppercase tracking-widest border-b border-white/30 hover:border-white transition-colors pb-0.5">{t('product.size_guide')}</button>
             </div>
             <div className="grid grid-cols-4 gap-4">
               {product.sizes.map((size) => (
@@ -125,7 +127,7 @@ export default function ProductDetail() {
               </button>
             </div>
             <button className="flex-1 bg-white text-black py-4 uppercase font-display tracking-[0.2em] font-bold hover:bg-white/90 transition-colors relative overflow-hidden group">
-              <span className="relative z-10">Add to Cart</span>
+              <span className="relative z-10">{t('product.add_to_cart')}</span>
               <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-in-out" />
             </button>
           </div>
@@ -158,7 +160,7 @@ export default function ProductDetail() {
 
       {/* You May Also Like */}
       <div className="border-t border-white/10 pt-24">
-        <h2 className="text-2xl font-display uppercase tracking-widest mb-12 text-center">You May Also Like</h2>
+        <h2 className="text-2xl font-display uppercase tracking-widest mb-12 text-center">{t('product.you_may_also_like')}</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {mockProducts.slice(0, 3).map(p => (
             <div key={p.id} className="group cursor-pointer">
